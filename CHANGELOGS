@@ -1,0 +1,75 @@
+* Note: This does not include movesets and dances.
+# Version 1.0.9 BETA
+ - Prepare for overhaul...
+ - Fixed placeholders having special effects despite not being used.
+ - this is removed now cuz no april fools but Genesis Intro (erm its march of 31st..)
+ - Renewed Tool fling (and removed credit because renewed without reference and with original code, sorry Empyrean)
+ - Added option not to hold the tool and instead use it as a fling part
+ - Added Marketplace/Store/Workshop, now you can increase how many dances you have!
+ - Added Gamepad and VR support (needs testing as of writing)
+ - Added First Person Body option, makes your body opaque when in first person
+ - Fixed wrongly named "missing" message when `sethiddenproperty` isn't found.
+ - (sorta) Added in more support, needs testing
+ - Fixed gamepad button A
+ - secrets
+ - Added window dragging bounds
+ - Fixed a bug in limb reanimation where the real RootPart is 1 frame behind
+# Version 1.0.6 BETA
+ - Renamed "RootPart in void" mode to "RootPart in very void"
+ - Added "RootPart in void" which fixes floating point issues with the torso.
+ - ModelStreamingMode = Persistent as an attempt to prevent the character from freezing in StreamingEnabled games while on hat reanimation with loop respawn
+   (well the above one didnt work, so i instead went for ReplicationFocus = workspace)
+ - Added modules reloading
+ - Added init logs, for debugging problems
+ - Random fix i came up with to "reduce crashes", lets see how it goes
+ - Made the DEFAULT UI click less annoying
+ - Click Sound in themes
+ - Virtual tool = massless
+ - Added Patchma's Void Float
+ - Fixed a few custom camera related issues
+ - Added auto-rebuild hat map (rebuilds when there is an unknown hat found)
+# Version 1.0.5 BETA
+ - Fixed Patchma-like netless, now it'll only be "jittery" when you move (like in the REAL)
+ - RepRootPart property is now available for hat overrides! (hat orbit is now possible)
+ - Permadeath is now forced to false. (RIP Permadeath)
+ - Fixed looprespawn delay
+ - Added hat placeholders!
+ - Added custom control (kinda accurate to roblox 2026 control)
+ - Added the same flow as Oxide :sob: /j
+ - Added attachment override for d_hatsmap.lua (so hats adapt to eyozen's head)
+ - Fixed hat overrides not actually overriding hats
+ - Fixed the 0.1 movement freeze when the game has Streaming enabled
+ - Added `ContextActions` as a variable accessible to modules
+ - Attempted to resize ASCII art according to preferred text size by the player (i tried man)
+# Version 1.0.4 BETA
+ - Added custom camera (accurate to roblox 2025 camera i think)
+   (FOR PC AND MOBILE ONLY FOR NOW)
+ - Added mobile shiftlock
+ - Changed Ctrl+Click Teleport to Key+Click Teleport
+ - Added the ability to change key to hold for Key+Click Teleport
+ - Fixed a few ownership issues
+# Version 1.0.3 BETA
+ - Added _G.Uhhhhhh which is STOLEN!1!1!!1! from Empyrean Reanimate
+   (no free advertising for u here, check the damn credits)
+ - more hat collide experimentation from me
+ - Added more client crashes! (because _G usage)
+ - Hat Collide V3 improvements! (it also has been set as default when you fresh start Uhhhhhh)
+ - Added a button that shows your hitboxes (for limb and hat reanim)
+ - Added support for autorig
+ - Better tool ownership from Empyrean Reanimate
+ - Fixed shiftlock and first person
+# Version 1.0.2 BETA
+ - Added themes: ALONE, Oxide, Patchma, Genesis V4, Crimson, r/masterhacker, etc...
+ - Added option to disable sitting on Seats
+ - Added option to remove downloaded content (to fix your caching issues)
+ - New hat maps
+ - Added option to correctly scale gravity with character
+# Version 1.0.0
+INITIAL RELEASE!
+ - Probably the most stable hat collide
+ - Really cool UI, mix of ROSR & ALONE theme
+ - Optimised animator
+ - Added modding
+ - Out of the alpha, and in with BETA!
+ - Added the ability to mog Genesis :D
+ - Added April Fools themes
