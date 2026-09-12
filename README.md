@@ -1,9 +1,5 @@
 # <p align="center">STEVETHEREALONE (@steve_internal)'s Universal Hierarchical 6 Reanimator</p>
 <p align="center">A really cool, optimised animation program with demo scenes! Idea originated from a dream.</p>
-<p align="center">
-	<img src="./images/Showcase.gif" alt="drawing" width="45%"/>
-	<img src="./images/Showcase2.gif" alt="drawing" width="45%"/>
-</p>
 
 This is the official repository for Uhhhhhh.
 All code is stored in this repository.
@@ -13,17 +9,44 @@ Join the [DISCORD](https://discord.gg/NASNUKRBVM) of all my programming shenanig
 
 **NOTICE:** This is still in development, so things are subject to change and stuff are expected to be missing.
 
+---
+
+## <p align="center">🔧 Uhhhhhh Reanimate — Upgraded by MRXH</p>
+<p align="center">Unofficial patch & upgrade by <b>@Ghost (mrghost / MRXH)</b> on top of STEVE's original build.</p>
+
+### Changelog
+
+#### v1.0.9 — MRXH Patch
+> Base: `reanimate.lua` v1.0.9 (STEVE original)
+
+**Changes made:**
+
+1. **Removed `BETA` label from version string**
+   - `UhhhhhhVersion` changed from `"1.0.9 BETA"` to `"1.0.9"`
+   - Applies automatically everywhere the version is displayed (TopBar, Cracktro, char name, etc.)
+
+2. **Upgrade: Force-stop all game animations while reanimate is active**
+
+   Previous issue: built-in game animations (idle, walk, etc.) could still override the reanimate pose server-side, causing the reanimate to not be visible to other players.
+
+   **Fix applied at 4 different points:**
+
+   - **`LimbReanimator` → `CharOnDesc`** — Whenever a new Animator appears on the character, all currently playing `AnimationTrack`s are immediately `Stop(0)`'d before the Animator is destroyed.
+
+   - **`LimbReanimator` → `CharacterAdded`** — On character spawn, all tracks are stopped via the Animator *and* via the Humanoid directly (fallback). A **persistent killer loop** on `RunService.PreAnimation` runs every frame to ensure no new animations can be replayed by the game.
+
+   - **`HatReanimator` → `CharOnDesc`** — Same as LimbReanimator: stops all tracks before destroying any newly added Animator.
+
+   - **`HatReanimator` → `OnCharacter` (NoAnim block)** — Stops via Animator + Humanoid fallback before destroying.
+
+   > **Why `Stop(0)`?** It stops animations instantly with no fade-out. The default `Stop()` has a 0.1s blend-out which can still be seen server-side.
+
+---
+
 ## Loadstring
-Pick from one of these:
 
-1. raw loadstring (cached by github)
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/STEVE-916-create/Uhhhhhh/main/source/reanim.lua"))()
-```
-
-2. api loadstring (bypasses github cache)
-```lua
-local a,b,c,g="/STEVE-916-create/Uhhhhhh/","/source/reanim.lua",".github","https://"local d=request({Url=`{g}api{c}.com/repos{a}contents{b}`,Headers={Accept=`application/vnd{c}.VERSION.raw`}})if d.StatusCode~=200 then d.Body=game:HttpGet(`{g}raw{c}usercontent.com{a}main{b}`)end local e,f=loadstring(d.Body)if not e then warn(f)else e()end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/linuxsecret98-svg/uhhhhh-reanimate-upgrade/refs/heads/main/source/reanimate.lua"))()
 ```
 
 ## Features:
@@ -31,52 +54,33 @@ local a,b,c,g="/STEVE-916-create/Uhhhhhh/","/source/reanim.lua",".github","https
 
    Uhhhhhh's hatdrop supports most (if not all) hat rigs!
 
-   <img src="./images/ILDoesKemusan.gif" alt="drawing" width="350"/>
-
-   <img src="./images/WaistRigSupport.gif" alt="drawing" width="350"/>
-
 2. Limb reanimation support
 
    In the case where you are just unable to afford hats, you can use your own limbs instead!
 
    Unfortunately, this only supports a few games.
 
-   <img src="./images/LimbReanimation.gif" alt="drawing" width="350"/>
-
 3. Good looking UI
 
    definitely better than genesis
-
-   <img src="./images/UserInterface.gif" alt="drawing" width="350"/>
 
 4. Moveset and Dance system
 
    Have old animations, or become Lightning Cannon. Dance anytime!
 
-   <img src="./images/IllMakeYouSay.gif" alt="drawing" width="350"/>
-
 5. Takes advantage of random replicate properties
 
    Serversided Physics glue = very accurate (and fast) fling!
 
-   <img src="./images/FastestFling.gif" alt="drawing" width="350"/>
-
 6. Modding support
 
    Infinite Yield lets you make plugins. So why not add it to Uhhhhhh too?
-
-   <img src="./images/GiantSkipping.gif" alt="drawing" width="350"/>
 
    The documentation is right below all of whatever these are.
 
 7. Themes
 
    You hate the colors? Change them! Do you want black? Do you want white? Do you want your own? The choice is yours.
-
-   <img src="./images/Theme1.jpg" alt="drawing" width="40%"/>
-   <img src="./images/Theme2.jpg" alt="drawing" width="40%"/>
-   <img src="./images/Theme3.jpg" alt="drawing" width="40%"/>
-   <img src="./images/Theme4.jpg" alt="drawing" width="40%"/>
 
 ```lua
 -- example theme
@@ -88,63 +92,6 @@ _G.UhhhhhhTheme = {
 -- the Color3s can also be a hex code string e.g.: "DDBB69"
 ```
 
-# SHOWCASES
--- :3 user images brought to you by Awes955
-<p align="center">
-	<img src="./images/3321822271_7041939546_1768574213001.png" alt="drawing" width="45%"/>
-	<img src="./images/4181218726_6441847031_1768744206674.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/4181218726_6441847031_1768755394038.png" alt="drawing" width="45%"/>
-	<img src="./images/4181218726_6441847031_1768825207608.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/4181218726_6441847031_1768829759425.png" alt="drawing" width="45%"/>
-	<img src="./images/IMG_0823.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/IMG_0843.png" alt="drawing" width="45%"/>
-	<img src="./images/IMG_0847.jpg" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/IMG_20260118_172134_004.png" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260117_205517_Roblox.jpg" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/IMG_20260119_163546_348.png" alt="drawing" width="45%"/>
-	<img src="./images/IMG_4334.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/IMG_4335.png" alt="drawing" width="45%"/>
-	<img src="./images/IMG_4336.jpg" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/Screenshot_20260118-165059.png" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260118-192115.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/Screenshot_20260118-222617.png" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260118-222711.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/4181218726_83560691049285_1769158731388.png" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260122-031656.jpg" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/Screenshot_20260122-031857.jpg" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260123-223246.jpg" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/Screenshot_20260124-174236.png" alt="drawing" width="45%"/>
-	<img src="./images/image.png" alt="drawing" width="45%"/>
-</p>
-<p align="center">
-	<img src="./images/image.webp" alt="drawing" width="45%"/>
-	<img src="./images/Screenshot_20260124-141230.png" alt="drawing" width="45%"/>
-</p>
-
-- Thats all for now, ill add any images that looks good :D
-  
 ## Contributing
 
 "Can I help? Can I/you add support for my hat?""
